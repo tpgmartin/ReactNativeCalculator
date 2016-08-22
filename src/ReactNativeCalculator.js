@@ -8,6 +8,7 @@ import InputButton from './InputButton'
 import Style from './Style'
 
 const inputButtons = [
+  ['C', 'CE'],
   [1, 2, 3, '/'],
   [4, 5, 6, '*'],
   [7, 8, 9, '-'],
@@ -94,7 +95,7 @@ class ReactNativeCalculator extends Component {
       case '=':
         let symbol = this.state.selectedSymbol,
           inputValue = this.state.inputValue,
-          previousInputValue = this.state.previousInputValue;
+          previousInputValue = this.state.previousInputValue
 
         if (!symbol) {
           return;
@@ -106,6 +107,16 @@ class ReactNativeCalculator extends Component {
           selectedSymbol: null
         });
         break;
+      case 'C':
+        this.setState({
+          inputValue: 0
+        })
+      case 'CE':
+        this.setState({
+          previousInputValue: 0,
+          inputValue: 0,
+          selectedSymbol: null
+        })      
     }
   }
 }
